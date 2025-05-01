@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Protocoles - Sécurité Carcéral</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      background: #0f111a;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    h1, h2, h3 {
+      font-family: 'Roboto Slab', serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center, #1a1c29 0%, #0f111a 80%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -1;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f111a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #44475a;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+  <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md shadow-md sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-3xl font-bold text-cyan-400 tracking-wide select-none">Sécurité Carcéral</h1>
+      <nav>
+        <ul class="flex space-x-6 text-cyan-300 font-semibold text-sm">
+          <li><a href="index.html" class="hover:text-cyan-500 transition"><i class="fas fa-home mr-1"></i>Accueil</a></li>
+          <li><a href="protocoles.html" class="hover:text-cyan-500 transition font-bold underline">Protocoles</a></li>
+          <li><a href="about.html" class="hover:text-cyan-500 transition">À propos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-6xl mx-auto px-6 py-10 space-y-8">
+    <article class="bg-gray-900 bg-opacity-70 rounded-lg p-6 shadow-lg border border-cyan-700 prose prose-invert max-w-none">
+      <h2 class="text-3xl font-bold mb-6">📜 Règlement Interne — Agents Carcéraux</h2>
+      <p>Bienvenue à tous les membres de la Sécurité Carcérale. Voici les règles internes et rappels à suivre entre nous, en plus des protocoles officiels.</p>
+
+      <h3 class="mt-8 mb-3">➤ Rappels sur les Protocoles de Base :</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Communication avec les Classe-D interdite, sauf pour ordre, avertissement, ou soutien scientifique.</li>
+        <li>Un Classe-D qui dépasse la ligne blanche doit être neutralisé immédiatement (pas besoin de sommation).</li>
+        <li>Si un scientifique n’a pas le grade requis, on annule l’expérience sans hésiter.</li>
+        <li>En cas d’émeute, tous les Classe-D hors cellule doivent être abattus.</li>
+        <li>Les UT+ sont interdits dans notre zone, sauf si :
+          <ul class="list-disc list-inside ml-6">
+            <li>Émeute active,</li>
+            <li>Aucun garde carcéral dispo,</li>
+            <li>Autorisation par un Chef/Superviseur carcéral.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="mt-8 mb-3">➤ Règles Spécifiques Entre Nous :</h3>
+      <p>La Zone Carcérale est plus large que la salle d’attente. Elle inclut tout l’espace de l'entrée, jusqu’au lockdown et vers les cellules.</p>
+      <p>Nous avons le droit de franchir la ligne blanche. Seuls les Classe-D sont sanctionnés pour franchissement. PAS les agents.</p>
+      <p>On reste soudés et on se couvre. Une erreur se règle calmement entre nous en privé, pas en public.</p>
+      <p>Discours clair en radio. Pas de spam, on reste pro. Courtes annonces, claires et efficaces.</p>
+      <p>Respect absolu de la chaîne carcérale. Les ordres des Chefs et Superviseurs carcéraux passent avant tout autre département.</p>
+      <p>En cas de doute sur une situation : On intervient avec précaution, jamais seul, et on appelle un supérieur si besoin.</p>
+      <p>Pas d’abus de tir. On suit les procédures sur la neutralisation. Pas de free-kill "pour le fun" on reste sérieux.</p>
+
+      <h3 class="mt-8 mb-3">📌 En Résumé :</h3>
+      <p>Notre autorité s’arrête pas à une salle. Notre job est de tenir toute la zone carcérale, jusqu'aux lockdowns. Nous sommes là pour maintenir la sécurité maximale, ensemble, proprement.</p>
+
+      <h3 class="mt-8 mb-3">➤ Règle additionnelle — Gestion de Foule :</h3>
+      <p>Si 5 Classe-D ou plus sont regroupés au même endroit, obligation immédiate de dispersion par avertissement vocal ou textuel.</p>
+      <p>Si refus ou comportement menaçant : autorisation d'engager la neutralisation progressive (avertissements > sommations > tir si danger).</p>
+      <p>Objectif : Éviter tout début d’émeute et protéger les accès sécurisés.</p>
+
+      <h3 class="mt-8 mb-3">➤ Règle additionnelle — Surveillance des vents :</h3>
+      <p>La surveillance (camp) des ventilations en Zone Carcérale est autorisée. Aucune règle HRP n'interdit de surveiller ou de sécuriser les ventilations.</p>
+      <p>Cependant : Par respect du fairplay et esprit de jeu, on évite de rester fixés trop longtemps sans bouger. Surveiller ≠ camper immobile indéfiniment. (On patrouille autour régulièrement.)</p>
+      <p>🛡️ En résumé rapide : Surveiller les vent OK, camper 24/7 NON. On joue intelligemment, pour rester efficaces et respectés.</p>
+
+      <h3 class="mt-8 mb-3">📚 Infos importantes — Interactions Sécurité Carcérale <> Scientifiques :</h3>
+      <ol class="list-decimal list-inside space-y-2">
+        <li>En dehors des expériences : Les scientifiques n'ont aucun pouvoir sur nous en zone carcérale hors expérience. (Si un scientifique te donne un "ordre" sans expérience en cours : tu ignores.) Un scientifique armé qui fait n'importe quoi peut être signalé à nos supérieurs ou aux Marshals. Ils n'ont pas le droit d'entrer dans les confinements des CD.</li>
+        <li>Pendant une expérience : Seul le scientifique qui gère l'expérience peut donner des ordres, et seulement pour le cadre de l'expérience. Si il abuse de ce pouvoir, (ex : te donne des ordres abusifs ou HS) tu peux retirer son autorité sur toi. Minimum 3 gardes obligatoires pour partir en expérience. (Si un scientifique demande une escorte mais qu'on est moins de 3, on refuse.)</li>
+        <li>Lors d'une alarme (raid, brèche, etc.) : Les scientifiques doivent partir au bunker directement. (Si un scientifique traîne dans la zone carcérale après une alarme → on l'expulse.)</li>
+        <li>Zone D et expériences : La Zone De Fouille (ZDF) fait partie de la zone carcérale. La Sécurité Carcérale contrôle la ZDF, pas les scientifiques. Les scientifiques doivent : Appeler la sécu via radio pour demander escorte. Laisser les agents faire fouille & gestion des D-Class. Respecter notre autorité en Zone Carcérale.</li>
+      </ol>
+
+      <h3 class="mt-8 mb-3">⚠️ Rappel très important :</h3>
+      <p>On a tout à fait le droit de dépasser la ligne blanche pour faire nos missions. La "zone carcérale" ce n'est pas seulement l'endroit avec les cellules : c'est toute la zone jusqu'au lockdown, y compris la ZDF. La Sécurité Carcérale est autorité locale en Zone Carcérale.</p>
+
+      <h3 class="mt-8 mb-3">📜 Rappel additionnel aux Protocoles Carcéraux</h3>
+      <p>Concernant l'autorité en zone carcérale :</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Les membres UT+ (Unités Tactiques Supérieures) n'ont pas autorité pour donner des ordres directs à la sécurité carcérale lorsqu’elle agit dans sa propre zone d'opération (zone carcérale : cellules, ZDF, entrée lockdown).</li>
+        <li>La gestion de la zone carcérale reste l'entière responsabilité du personnel carcéral affecté.</li>
+        <li>Les UT+ peuvent intervenir en appui en cas de crise (émeute, brèche, attaque) mais ne peuvent pas imposer de directives sur la gestion quotidienne, le maintien de l’ordre, ou les procédures internes.</li>
+        <li>En cas de doute ou de conflit d'instructions, le protocole carcéral prévaut et vous devez immédiatement remonter l'incident à votre supérieur (Chef Garde ou Superviseur Carcéral).</li>
+      </ul>
+
+      <h3 class="mt-8 mb-3">📜 Rappel sur la présence Administrative en zone carcérale / en expérience :</h3>
+      <p>Le personnel administratif n'a pas le droit de participer ou d'assister à une expérience, même passivement. En cas de tentative de leur part, refusez leur présence, prévenez poliment qu'ils enfreignent leur protocole interne, et contactez un supérieur si nécessaire.</p>
+      <p>Petite phrase rapide en radio si besoin : "Rappel : Le personnel administratif n'est pas autorisé à participer aux expériences. Merci de faire respecter les protocoles."</p>
+
+      <h3 class="mt-8 mb-3">Rappel des protos : ・PROTOCOLES DU DÉPARTEMENT SÉCURITAIRE EN ZONE CARCÉRALE</h3>
+      <ol class="list-decimal list-inside space-y-2">
+        <li>Article 1. La sécurité est dans l’interdiction formelle de communiquer avec le personnel de Classe-D.
+          <ul class="list-disc list-inside ml-6">
+            <li>Al. 1. La sécurité peut communiquer pour donner des ordres et/ou des avertissements.</li>
+            <li>Al. 2. La sécurité peut communiquer en cas d’expérience d’un membre du personnel scientifique.</li>
+          </ul>
+        </li>
+        <li>Article 2. Le personnel de Classe-D dépassant la ligne rouge doit être abattu sans sommation même dans le cas où il retourne sur ses pas. Être sur la ligne rouge ≠ dépasser.</li>
+        <li>Article 3. Si un scientifique n’a pas le grade requis pour effectuer son expérience, la sécurité se doit d’annuler l’expérience.</li>
+        <li>Article 4. En cas d’émeute, le personnel de Classe-D ne se trouvant pas dans sa cellule doit être abattu.</li>
+        <li>Article 5. Les UT+ sont formellement interdits en zone carcérale.
+          <ul class="list-disc list-inside ml-6">
+            <li>Al. 1. Cette règle ne s’applique pas en cas d’émeute.</li>
+            <li>Al. 2. Cette règle ne s’applique pas non plus si aucun garde n’est disponible.</li>
+            <li>Al. 3. Cette règle ne s’applique pas si le Chef Carcéral (Chef Garde) ou le Superviseur Carcéral autorise le personnel à y rester.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+  </main>
+
+  <footer class="bg-gray-900 bg-opacity-80 backdrop-blur-md shadow-inner text-center text-gray-400 text-sm py-4 select-none">
+    &copy; 2024 Sécurité Carcéral. Tous droits réservés.
+  </footer>
+</body>
+</html>
