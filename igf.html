@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IGF Panel - Inspection Générale Fondationnaire</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: #e0e0e0;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      font-family: 'Roboto Slab', serif;
+    }
+    header {
+      background: #111827;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,255,255,0.3);
+    }
+    .logo {
+      height: 40px;
+      width: 40px;
+      border-radius: 6px;
+      margin-right: 0.75rem;
+    }
+    nav a {
+      color: #00ffff;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    nav a:hover {
+      color: #00aaff;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 3rem auto;
+      background: #111827;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffff;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+      font-weight: 700;
+      font-size: 1.75rem;
+    }
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      background: #1f2937;
+      color: #e0e0e0;
+    }
+    .login-container input[type="password"]::placeholder {
+      color: #7f9ca8;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #00ffff;
+      color: #0f111a;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+    .login-container button:hover {
+      background: #00aaff;
+    }
+    .error-message {
+      color: #ff5555;
+      margin-top: 0.75rem;
+      display: none;
+    }
+    .member-card {
+      background: #111827;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      cursor: default;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+    .member-card:hover {
+      box-shadow: 0 0 25px #00ffff;
+    }
+    .member-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .member-icon {
+      font-size: 2.5rem;
+      color: #00ffff;
+      margin-right: 1rem;
+    }
+    .member-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00ffff;
+    }
+    .member-code {
+      font-style: italic;
+      color: #7f9ca8;
+      font-size: 1rem;
+    }
+    .redacted {
+      background: #222;
+      color: #222;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      position: relative;
+      transition: background-color 0.3s ease;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 8px #00ffff;
+    }
+    .redacted:hover {
+      background-color: #00ffff;
+      color: #0f111a;
+      box-shadow: 0 0 12px #00ffff;
+    }
+    .bio {
+      margin-top: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.6s ease;
+      color: #c0f9f9;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .bio.show {
+      max-height: 500px;
+      opacity: 1;
+    }
+    .unlocking {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #00ffff;
+      letter-spacing: 0.1em;
+      animation: unlockingAnim 2.5s forwards;
+      z-index: 10;
+      border-radius: 12px;
+    }
+    @keyframes unlockingAnim {
+      0% {opacity: 0;}
+      10% {opacity: 1;}
+      90% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+    footer {
+      text-align: center;
+      margin: 3rem 0 1rem;
+      font-size: 0.9rem;
+      color: #00ffff;
+    }
+    footer a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: #00aaff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex items-center">
+      <img src="https://cdn.discordapp.com/icons/949302634894995456/9d76d322bf005c53d8774e051b3aa3dd.png?size=256" alt="Logo" class="logo" />
+      <h1>Inspection Générale Fondationnaire - Panel IGF</h1>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="groupe.html">Groupes</a>
+      <a href="protocoles.html">Protocoles</a>
+      <a href="about.html">À propos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="login-section" class="login-container">
+      <h2>Connexion IGF</h2>
+      <input type="password" id="igf-password" placeholder="Entrez le mot de passe IGF" aria-label="Mot de passe IGF" />
+      <button id="login-btn">Se connecter</button>
+      <div id="error-msg" class="error-message">Mot de passe incorrect. Veuillez réessayer.</div>
+    </div>
+
+    <div id="igf-content" style="display:none;">
+      <h2 class="text-center text-cyan-400 font-semibold text-2xl mb-6">Membres de la Sécurité Carcéral</h2>
+
+      <section class="member-card" id="jake-malabrad">
+        <div class="member-header">
+          <i class="fas fa-user-shield member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Jake Malabrad</div>
+            <div class="member-code">Code: TOGOLAIS</div>
+          </div>
+        </div>
+        <p>Ancien Agent Carcéral Senior, fondateur du site web et intendant administratif actuellement.</p>
+      </section>
+
+      <section class="member-card" id="superviseur-general">
+        <div class="member-header">
+          <i class="fas fa-user-tie member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Superviseur Général Carcéral</div>
+            <div class="member-code">Grade: Arc Warder</div>
+          </div>
+        </div>
+        <p>
+          Statut: <span class="redacted" id="redacted-superviseur">███████</span>
+        </p>
+        <div class="bio" id="bio-superviseur">
+          Le plus haut gradé de la sécurité carcérale. Responsable de la supervision générale et de la coordination des opérations. Une figure d'autorité respectée et hautement accréditée.
+        </div>
+      </section>
+
+      <section class="member-card" id="charlie">
+        <div class="member-header">
+          <i class="fas fa-chalkboard-teacher member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Chef Carcéral Senior Charlie</div>
+            <div class="member-code">Formateur des chefs carcéraux, haut gradé</div>
+          </div>
+        </div>
+        <p>Responsable de la formation et du développement des chefs carcéraux.</p>
+      </section>
+
+      <section class="member-card" id="ac-mike">
+        <div class="member-header">
+          <i class="fas fa-headset member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Agent Carcéral Senior Mike</div>
+            <div class="member-code">Intercom Discord</div>
+          </div>
+        </div>
+        <p>Agent carcéral très soutenant et très protocolaire, actif sur l'intercom Discord.</p>
+      </section>
+
+      <section class="member-card" id="ac-boum">
+        <div class="member-header">
+          <i class="fas fa-user-shield member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Agent Carcéral Senior Boum</div>
+          </div>
+        </div>
+        <p>Membre senior de la sécurité carcérale.</p>
+      </section>
+
+      <section class="member-card" id="nachan">
+        <div class="member-header">
+          <i class="fas fa-user-lock member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Directeur Sécuritaire Nachan</div>
+            <div class="member-code">Intercom Sécurité Carcéral</div>
+          </div>
+        </div>
+        <p>Directeur de la sécurité, actif sur l'intercom de la sécurité carcérale.</p>
+      </section>
+
+      <section class="member-card" id="ac-dich3">
+        <div class="member-header">
+          <i class="fas fa-user-check member-icon" aria-hidden="true"></i>
+          <div>
+            <div class="member-name">Agent Carcéral Confirmé MenOf (Dich3)</div>
+          </div>
+        </div>
+        <p>Agent carcéral confirmé avec un rôle important dans la sécurité.</p>
+      </section>
+
+      <footer>
+        Serveur Intercom Discord: <a href="https://discord.gg/cd3Nsx5W" target="_blank" rel="noopener noreferrer">https://discord.gg/cd3Nsx5W</a>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    const correctPassword = "IGF25S43VIP";
+
+    const loginSection = document.getElementById('login-section');
+    const igfContent = document.getElementById('igf-content');
+    const loginBtn = document.getElementById('login-btn');
+    const passwordInput = document.getElementById('igf-password');
+    const errorMsg = document.getElementById('error-msg');
+
+    const redactedSuperviseur = document.getElementById('redacted-superviseur');
+    const bioSuperviseur = document.getElementById('bio-superviseur');
+
+    function showUnlockingAnimation(element, callback) {
+      const unlockingDiv = document.createElement('div');
+      unlockingDiv.classList.add('unlocking');
+      unlockingDiv.textContent = 'Déverrouillage en cours...';
+      element.appendChild(unlockingDiv);
+
+      setTimeout(() => {
+        unlockingDiv.remove();
+        callback();
+      }, 2500);
+    }
+
+    redactedSuperviseur.addEventListener('click', () => {
+      if (!bioSuperviseur.classList.contains('show')) {
+        showUnlockingAnimation(redactedSuperviseur.parentElement, () => {
+          bioSuperviseur.classList.add('show');
+          redactedSuperviseur.style.backgroundColor = '#00ffff';
+          redactedSuperviseur.style.color = '#0f111a';
+          redactedSuperviseur.style.boxShadow = '0 0 12px #00ffff';
+          redactedSuperviseur.style.cursor = 'default';
+          redactedSuperviseur.removeEventListener('click', arguments.callee);
+        });
+      }
+    });
+
+    loginBtn.addEventListener('click', () => {
+      const enteredPassword = passwordInput.value;
+      if (enteredPassword === correctPassword) {
+        loginSection.style.display = 'none';
+        igfContent.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+
+    passwordInput.addEventListener('input', () => {
+      errorMsg.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
